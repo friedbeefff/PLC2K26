@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMICCO - Find Your Wonder</title>
+    
+    <!-- Google Font: Pixel/Mario Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Font Awesome untuk ikon tambahan -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- BACKGROUND OVERLAY -->
+    <div class="bg-overlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-wrapper">
+                    <img src="assets/logo.png" alt="Logo PLC 2K26" id="logoImg" />
+                </div>
+                <span class="logo-text">PLC 2K26</span>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#about">
+                        <span class="nav-emoji">🍄</span>
+                        <span class="nav-text">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#competitions">
+                        <span class="nav-emoji">⭐</span>
+                        <span class="nav-text">Competitions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#registration">
+                        <span class="nav-emoji">🔨</span>
+                        <span class="nav-text">Registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <span class="nav-emoji">📞</span>
+                        <span class="nav-text">Contact Person</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="pixel-title">AMICCO</h1>
+                <p class="pixel-subtitle">Find Your Wonder</p>
+                <div class="hero-buttons">
+                    <a href="#registration" class="btn-pixel">DAFTAR SEKARANG!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US - TOMBOL KE GDOCS -->
+    <section id="about" class="section pixel-card">
+        <div class="container">
+            <h2><span class="pixel-icon">🍄</span> About Us</h2>
+            <p>AMICCO adalah event kolaborasi antara dunia Mario dan Wreck-It Ralph! 
+            Temukan keajaiban dalam setiap tantangan.</p>
+            <div class="section-btn">
+                <a href="https://docs.google.com/document/d/XXXXXXXXX/edit" target="_blank" class="btn-pixel btn-small">
+                    <i class="fas fa-file-alt"></i> mORE..
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPETITIONS -->
+    <section id="competitions" class="section pixel-card">
+        <div class="container">
+            <h2><span class="pixel-icon">⭐</span> Competitions</h2>
+            <div class="competition-grid">
+                <div class="card">🎮 Speedrun Challenge</div>
+                <div class="card">🔨 Wrecking Ball Contest</div>
+                <div class="card">🍄 Mushroom Kingdom Quiz</div>
+                <div class="card">⭐ Star Collecting Race</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION - TOMBOL KE GFORMS -->
+    <section id="registration" class="section pixel-card">
+        <div class="container">
+            <h2><span class="pixel-icon">🔨</span> Registration</h2>
+            <p>Pendaftaran dibuka hingga 30 Agustus 2026!</p>
+            <div class="section-btn">
+                <a href="https://docs.google.com/forms/d/XXXXXXXXX/edit" target="_blank" class="btn-pixel btn-small">
+                    <i class="fas fa-edit"></i> Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PERSON - TOMBOL KE WHATSAPP -->
+    <section id="contact" class="section pixel-card">
+        <div class="container">
+            <h2><span class="pixel-icon">📞</span> Contact Person</h2>
+            <ul class="contact-list">
+                <li><i class="fas fa-phone"></i> +62 812-3456-7890</li>
+                <li><i class="fas fa-envelope"></i> amicco@sekolah.com</li>
+                <li><i class="fab fa-instagram"></i> @amicco_event</li>
+            </ul>
+            <div class="section-btn">
+                <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20bertanya%20tentang%20event%20AMICCO" target="_blank" class="btn-pixel btn-small whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 AMICCO - <span class="pixel-text">Find Your Wonder</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

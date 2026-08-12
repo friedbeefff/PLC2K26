@@ -554,31 +554,64 @@ body {
     position: relative;
 }
 
+/* ===== TIMELINE BADGE - BACKGROUND SOLID ===== */
 .timeline-badge {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    border: 3px solid var(--secondary);
-    background: rgba(0, 0, 0, 0.8);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #fff;
+    border: 4px solid var(--secondary);
+    background: #000000; /* HITAM SOLID - GAK TEMBUS */
     z-index: 2;
     transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(251, 208, 0, 0.15);
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* Warna badge tiap gelombang - BACKGROUND SOLID */
+.gelombang1 { 
+    border-color: #4CAF50; 
+    background: #1a3a1a; /* HIJAU GELAP SOLID */
+    color: #4CAF50;
+    box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+}
+.gelombang2 { 
+    border-color: #049CD8; 
+    background: #0a2a4a; /* BIRU GELAP SOLID */
+    color: #049CD8;
+    box-shadow: 0 0 30px rgba(4, 156, 216, 0.3);
+}
+.event-badge { 
+    border-color: #FBD000; 
+    background: #3a2a00; /* KUNING GELAP SOLID */
+    color: #FBD000;
+    box-shadow: 0 0 30px rgba(251, 208, 0, 0.3);
+}
+.climax-badge { 
+    border-color: #FFD700; 
+    background: #3a2a00; /* KUNING EMAS GELAP SOLID */
+    color: #FFD700;
+    font-size: 1.8rem;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    border-width: 5px;
+    animation: crownPulse 2s ease-in-out infinite;
 }
 
 .timeline-badge:hover {
     transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 0 30px rgba(251, 208, 0, 0.3);
+    box-shadow: 0 0 40px rgba(251, 208, 0, 0.4);
 }
 
-/* Warna badge tiap gelombang */
-.gelombang1 { border-color: #4CAF50; }
-.gelombang2 { border-color: #049CD8; }
-.event-badge { border-color: #FBD000; background: rgba(251, 208, 0, 0.2); }
-.climax-badge { border-color: #FFD700; background: rgba(255, 215, 0, 0.3); font-size: 2rem; }
+@keyframes crownPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); }
+    50% { transform: scale(1.1); box-shadow: 0 0 70px rgba(255, 215, 0, 0.6); }
+}
 
 .timeline-content {
     background: rgba(255, 255, 255, 0.05);

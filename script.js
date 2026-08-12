@@ -25,7 +25,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== COUNTDOWN =====
 function updateCountdown() {
-    const targetDate = new Date('2026-08-30');
+    const targetDate = new Date('2026-09-20');
     const now = new Date();
     const diff = targetDate - now;
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
@@ -34,16 +34,24 @@ function updateCountdown() {
         if (days > 0) {
             timer.textContent = `⏳ Hari tersisa: ${days}`;
         } else {
-            timer.textContent = '🎉 Event sedang berlangsung!';
+            timer.textContent = '🎉 Pendaftaran ditutup!';
         }
     }
 }
 updateCountdown();
 
 // ===== QUESTION BLOCK INTERAKTIF =====
-document.querySelector('.question-block')?.addEventListener('click', function() {
-    this.textContent = '✨';
-    setTimeout(() => {
-        this.textContent = '❓';
-    }, 1000);
-    // Efek su
+const questionBlock = document.querySelector('.question-block');
+if (questionBlock) {
+    questionBlock.addEventListener('click', function() {
+        this.textContent = '✨';
+        setTimeout(() => {
+            this.textContent = '❓';
+        }, 1000);
+    });
+}
+
+// ===== CONSOLE LOG =====
+console.log('🍄 AMICCO - Find Your Wonder! 🔨');
+console.log('📅 Timeline 2 Gelombang siap!');
+console.log('💡 Jangan lupa ganti link Google Docs, Google Forms, dan WhatsApp!');

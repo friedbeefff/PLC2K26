@@ -1,167 +1,3 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AMICCO - Find Your Wonder</title>
-    
-    <!-- Google Font: Pixel/Mario Style -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-<body>
-    <!-- ===== BACKGROUND ANIMASI ===== -->
-    <div class="bg-wrapper">
-        <div class="stars"></div>
-        <div class="cloud cloud1">☁️</div>
-        <div class="cloud cloud2">☁️</div>
-        <div class="cloud cloud3">☁️</div>
-        <div class="mushroom m1">🍄</div>
-        <div class="mushroom m2">🍄</div>
-        <div class="mushroom m3">🍄</div>
-        <div class="shooting-star">⭐</div>
-        <div class="shooting-star2">⭐</div>
-        <div class="question-block">❓</div>
-    </div>
-
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar glass">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-wrapper">
-                    <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
-                </div>
-                <span class="logo-text gradient-text">PLC 2K26</span>
-            </div>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="#about" class="nav-link">
-                        <span class="nav-emoji">🍄</span>
-                        <span class="nav-text">About</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#competitions" class="nav-link">
-                        <span class="nav-emoji">⭐</span>
-                        <span class="nav-text">Competitions</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#timeline" class="nav-link">
-                        <span class="nav-emoji">📅</span>
-                        <span class="nav-text">Timeline</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#registration" class="nav-link">
-                        <span class="nav-emoji">🔨</span>
-                        <span class="nav-text">Register</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact" class="nav-link">
-                        <span class="nav-emoji">📞</span>
-                        <span class="nav-text">Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="pixel-badge">🎮 2026</div>
-                <h1 class="pixel-title glow-text">AMICCO</h1>
-                <p class="pixel-subtitle">Find Your Wonder</p>
-                <div class="hero-buttons">
-                    <a href="#registration" class="btn-pixel pulse-btn">
-                        <i class="fas fa-gamepad"></i> DAFTAR SEKARANG!
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <span>🏆 100+ Peserta</span>
-                    <span>🎯 8 Lomba</span>
-                    <span>💰 Prize Pool 10jt++</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== ABOUT US ===== -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="pixel-card glass card-hover">
-                <h2><span class="pixel-icon bounce-icon">🍄</span> About Us</h2>
-                <p>AMICCO adalah event kolaborasi antara dunia <span class="highlight">Mario</span> dan <span class="highlight2">Wreck-It Ralph</span>! Temukan keajaiban dalam setiap tantangan.</p>
-                <div class="section-btn">
-                    <a href="https://docs.google.com/document/d/XXXXXXXXX/edit" target="_blank" class="btn-pixel btn-small">
-                        <i class="fas fa-file-alt"></i> Lihat Dokumen
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== COMPETITIONS - LIST LOMBA BARU ===== -->
-    <section id="competitions" class="section">
-        <div class="container">
-            <div class="pixel-card glass card-hover">
-                <h2><span class="pixel-icon spin-icon">⭐</span> Competitions</h2>
-                <div class="competition-grid">
-                    <!-- 8 Lomba -->
-                    <div class="card card-3d">
-                        <div class="card-icon">🎭</div>
-                        <h3>Cosplay Walk</h3>
-                        <p>Show off your best costume!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">📚</div>
-                        <h3>English Olympic</h3>
-                        <p>Test your English skills!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">✍️</div>
-                        <h3>Menulis Cerpen</h3>
-                        <p>Tulis cerita terbaikmu!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">💃</div>
-                        <h3>Modern Dance</h3>
-                        <p>Tunjukkan gerakanmu!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">🎤</div>
-                        <h3>Solo Song</h3>
-                        <p>Suarakan bakatmu!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">🗣️</div>
-                        <h3>Spelling Bee</h3>
-                        <p>Eja kata dengan tepat!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">🏀</div>
-                        <h3>Basket 3x3</h3>
-                        <p>Kerjasama tim terbaik!</p>
-                    </div>
-                    <div class="card card-3d">
-                        <div class="card-icon">💄</div>
-                        <h3>Fashion & Make Up</h3>
-                        <p>Tampil memukau!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ============================================ -->
     <!-- TIMELINE - JADWAL PENDAFTARAN & ACARA        -->
     <!-- ============================================ -->
@@ -173,9 +9,14 @@
 
                 <div class="timeline-container">
 
+                    <!-- ===== GELOMBANG PENDAFTARAN ===== -->
+                    <div class="timeline-section-label">
+                        <span>📋 PENDAFTARAN</span>
+                    </div>
+
                     <!-- Gelombang 1 -->
                     <div class="timeline-item">
-                        <div class="timeline-badge gelombang1">🎫</div>
+                        <div class="timeline-badge gelombang1">1</div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <span class="wave-tag wave1">Gelombang 1</span>
@@ -187,7 +28,7 @@
 
                     <!-- Gelombang 2 -->
                     <div class="timeline-item">
-                        <div class="timeline-badge gelombang2">🎫</div>
+                        <div class="timeline-badge gelombang2">2</div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <span class="wave-tag wave2">Gelombang 2</span>
@@ -197,16 +38,21 @@
                         </div>
                     </div>
 
-                    <!-- DIVIDER - Acara Lomba -->
+                    <!-- ===== DIVIDER ===== -->
                     <div class="timeline-divider">
-                        <span>🎯</span>
+                        <span>⚡</span>
                         <span class="divider-text">ACARA LOMBA</span>
-                        <span>🎯</span>
+                        <span>⚡</span>
                     </div>
 
-                    <!-- Hari 1 - Lomba -->
+                    <!-- ===== HARI LOMBA ===== -->
+                    <div class="timeline-section-label">
+                        <span>🏆 HARI LOMBA</span>
+                    </div>
+
+                    <!-- Hari 1 -->
                     <div class="timeline-item highlight-item">
-                        <div class="timeline-badge event-badge">🏆</div>
+                        <div class="timeline-badge event-badge">1</div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <span class="wave-tag event-tag">Hari 1</span>
@@ -219,9 +65,9 @@
                         </div>
                     </div>
 
-                    <!-- Hari 2 - Lomba -->
+                    <!-- Hari 2 -->
                     <div class="timeline-item highlight-item">
-                        <div class="timeline-badge event-badge">🏆</div>
+                        <div class="timeline-badge event-badge">2</div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <span class="wave-tag event-tag">Hari 2</span>
@@ -234,12 +80,18 @@
                         </div>
                     </div>
 
-                    <!-- PUNCAK ACARA -->
+                    <!-- ===== PUNCAK ACARA ===== -->
+                    <div class="timeline-divider climax-divider">
+                        <span>🌟</span>
+                        <span class="divider-text climax-divider-text">PUNCAK ACARA</span>
+                        <span>🌟</span>
+                    </div>
+
                     <div class="timeline-item climax-item">
-                        <div class="timeline-badge climax-badge">🌟</div>
+                        <div class="timeline-badge climax-badge">🏆</div>
                         <div class="timeline-content climax-content">
                             <div class="timeline-header">
-                                <span class="wave-tag climax-tag">⭐ PUNCAK ACARA</span>
+                                <span class="wave-tag climax-tag">⭐ GRAND FINAL</span>
                                 <span class="timeline-date climax-date">3 Oktober 2026</span>
                             </div>
                             <p class="climax-text">Grand Final · Pengumuman Pemenang · Penutupan</p>
@@ -254,60 +106,3 @@
             </div>
         </div>
     </section>
-
-    <!-- ===== REGISTRATION ===== -->
-    <section id="registration" class="section">
-        <div class="container">
-            <div class="pixel-card glass card-hover">
-                <h2><span class="pixel-icon shake-icon">🔨</span> Registration</h2>
-                <p>Pendaftaran dibuka hingga <span class="highlight">20 September 2026</span>!</p>
-                <div class="section-btn">
-                    <a href="https://docs.google.com/forms/d/XXXXXXXXX/edit" target="_blank" class="btn-pixel btn-small">
-                        <i class="fas fa-edit"></i> Daftar Sekarang
-                    </a>
-                </div>
-                <div class="countdown">
-                    <span>⏳</span>
-                    <span id="countdown-timer">Slot Terbatas!!</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="pixel-card glass card-hover">
-                <h2><span class="pixel-icon float-icon">📞</span> Contact Person</h2>
-                <ul class="contact-list">
-                    <li><i class="fas fa-phone"></i> +62 123-1234-1234</li>
-                    <li><i class="fas fa-envelope"></i> plc@gmail.com</li>
-                    <li><i class="fab fa-instagram"></i> @official_posh</li>
-                </ul>
-                <div class="section-btn">
-                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20bertanya%20tentang%20event%20AMICCO" target="_blank" class="btn-pixel btn-small whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> Chat WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">🍄 AMICCO</div>
-                <p>© 2026 - <span class="pixel-text">Find Your Wonder</span></p>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>

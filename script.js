@@ -1,4 +1,3 @@
-// ===== HAMBURGER =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
@@ -12,7 +11,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -23,7 +21,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== COUNTDOWN =====
 function updateCountdown() {
     const targetDate = new Date('2026-09-20');
     const now = new Date();
@@ -40,7 +37,6 @@ function updateCountdown() {
 }
 updateCountdown();
 
-// ===== QUESTION BLOCK INTERAKTIF =====
 const questionBlock = document.querySelector('.question-block');
 if (questionBlock) {
     questionBlock.addEventListener('click', function() {
@@ -51,7 +47,4 @@ if (questionBlock) {
     });
 }
 
-// ===== CONSOLE LOG =====
 console.log('🍄 AMICCO - Find Your Wonder! 🔨');
-console.log('📅 Timeline 2 Gelombang siap!');
-console.log('💡 Jangan lupa ganti link Google Docs, Google Forms, dan WhatsApp!');

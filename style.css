@@ -166,7 +166,7 @@ body {
 }
 
 /* ============================================
-   NAVBAR
+   
 ============================================ */
 .navbar {
     padding: 12px 0;
@@ -175,7 +175,8 @@ body {
     z-index: 1000;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(15px);
-    border-bottom: 3px solid var(--secondary);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, #FF6B00, #FBD000, #FF6B00) 1;
     box-shadow: 0 0 40px rgba(251, 208, 0, 0.05);
 }
 

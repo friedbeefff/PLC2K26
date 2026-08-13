@@ -343,6 +343,9 @@ body {
 /* ============================================
    NAVBAR
 ============================================ */
+/* ============================================
+   NAVBAR - DENGAN GARIS BATU BATA DI ATAS
+============================================ */
 .navbar {
     padding: 12px 0;
     position: sticky;
@@ -352,6 +355,63 @@ body {
     backdrop-filter: blur(15px);
     border-bottom: 4px solid var(--secondary);
     box-shadow: 0 0 50px rgba(229,37,33,0.3), inset 0 0 30px rgba(229,37,33,0.1);
+    position: relative;
+    /* Beri jarak di atas untuk garis bata */
+    margin-top: 14px;
+}
+
+/* GARIS BATU BATA DI ATAS NAVBAR (di atas warna merah) */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            #8B4513 0px,
+            #8B4513 25px,
+            #A0522D 25px,
+            #A0522D 27px,
+            #8B4513 27px,
+            #8B4513 52px,
+            #A0522D 52px,
+            #A0522D 54px
+        );
+    background-size: 54px 14px;
+    opacity: 1;
+    z-index: 10;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+
+/* GARIS BATU BATA DI BAWAH NAVBAR (opsional) */
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            #8B4513 0px,
+            #8B4513 25px,
+            #A0522D 25px,
+            #A0522D 27px,
+            #8B4513 27px,
+            #8B4513 52px,
+            #A0522D 52px,
+            #A0522D 54px
+        );
+    background-size: 54px 14px;
+    opacity: 0.8;
+    z-index: 10;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 .navbar .container {
     display: flex;
@@ -943,4 +1003,69 @@ footer p {
     .timeline-section-label span { font-size: 0.45rem; padding: 3px 10px; }
     .divider-text { font-size: 0.4rem; letter-spacing: 1px; }
     .timeline-divider { gap: 10px; padding: 10px 0 6px 0; }
+}
+
+/* ===== BRICK - BATU BATA MARIO ===== */
+.brick {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.3; /* Dibuat lebih terang biar keliatan */
+    animation: brickFloat 3s ease-in-out infinite;
+    z-index: 5;
+    filter: drop-shadow(0 0 10px rgba(200, 100, 50, 0.3));
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Posisi brick - pastikan ini semua ada */
+.brick1 { 
+    bottom: 30%; 
+    left: 10%; 
+    animation-delay: 0s; 
+    font-size: 3.5rem;
+    opacity: 0.35;
+}
+.brick2 { 
+    bottom: 40%; 
+    right: 8%; 
+    animation-delay: 1.5s; 
+    font-size: 2.8rem;
+    opacity: 0.3;
+}
+.brick3 { 
+    bottom: 20%; 
+    left: 45%; 
+    animation-delay: 2.5s; 
+    font-size: 2.5rem;
+    opacity: 0.25;
+}
+.brick4 { 
+    top: 20%; 
+    left: 5%; 
+    animation-delay: 0.5s; 
+    font-size: 2.8rem;
+    opacity: 0.3;
+}
+.brick5 { 
+    top: 50%; 
+    right: 3%; 
+    animation-delay: 1.2s; 
+    font-size: 3.2rem;
+    opacity: 0.25;
+}
+.brick6 { 
+    bottom: 10%; 
+    right: 30%; 
+    animation-delay: 2s; 
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+@keyframes brickFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg) scale(1); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg) scale(1.05); 
+    }
 }

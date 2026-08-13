@@ -4,69 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AMICCO - Find Your Wonder</title>
+    
+    <!-- ===== FAVICON / LOGO WEB ===== -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-   <!-- ===== ELEMEN BERGERAK TEMA MARIO × WRECK-IT RALPH ===== -->
-<div class="bg-wrapper">
-    <!-- Bintang berkedip -->
-    <div class="stars"></div>
-    
-    <!-- Awan bergerak -->
-    <div class="cloud cloud1">☁️</div>
-    <div class="cloud cloud2">☁️</div>
-    <div class="cloud cloud3">☁️</div>
-    <div class="cloud cloud4">☁️</div>
-    
-    <!-- JAMUR MARIO - Float naik turun -->
-    <div class="mushroom m1">🍄</div>
-    <div class="mushroom m2">🍄</div>
-    <div class="mushroom m4">🍄</div>
-    
-    <!-- BINTANG JATUH - Meluncur dari atas -->
-    <div class="shooting-star">⭐</div>
-    <div class="shooting-star2">⭐</div>
-    <div class="shooting-star3">⭐</div>
-    
-    <!-- QUESTION BLOCK - Bounce -->
-    <div class="question-block">❓</div>
-    
-    <!-- COIN MARIO - Berputar -->
-    <div class="coin coin1">🪙</div>
-    <div class="coin coin3">🪙</div>
-    <div class="coin coin4">🪙</div>
-    
-    <!-- BRICK BLOCK - Float -->
-    <div class="brick brick1">🧱</div>
-    <div class="brick brick2">🧱</div>
-    <div class="brick brick3">🧱</div>
-    
-    <!-- POHON - Sway -->
-    <div class="tree tree1">🌳</div>
-    <div class="tree tree2">🌳</div>
-    <div class="tree tree3">🌳</div>
-    
-    
-    <!-- PALU WRECK-IT RALPH - Berputar -->
-    <div class="hammer hammer2">🔨</div>
-    
-    <!-- BINTANG SUPER MARIO - Berkilau -->
-    <div class="super-star star1">⭐</div>
-    <div class="super-star star2">⭐</div>
-</div>
+        <!-- ===== BACKGROUND DINAMIS (SCROLL) ===== -->
+    <div class="bg-wrapper" id="bgWrapper">
+        <!-- 3 Layer Background dengan opacity -->
+        <div class="bg-mario" id="bgMario"></div>
+        <div class="bg-wreck" id="bgWreck"></div>
+        <div class="bg-wreck-blue" id="bgWreckBlue"></div>
+        
+        <div class="stars"></div>
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="cloud cloud3">☁️</div>
+        <div class="cloud cloud4">☁️</div>
+        <div class="mushroom m1">🍄</div>
+        <div class="mushroom m2">🍄</div>
+        <div class="mushroom m4">🍄</div>
+        <div class="shooting-star">⭐</div>
+        <div class="shooting-star2">⭐</div>
+        <div class="shooting-star3">⭐</div>
+        <div class="question-block">❓</div>
+        <div class="coin coin1">🪙</div>
+        <div class="coin coin3">🪙</div>
+        <div class="coin coin4">🪙</div>
+        <div class="brick brick1">🧱</div>
+        <div class="brick brick2">🧱</div>
+        <div class="brick brick3">🧱</div>
+        <div class="tree tree1">🌳</div>
+        <div class="tree tree2">🌳</div>
+        <div class="tree tree3">🌳</div>
+        <div class="hammer2">🔨</div>
+        <div class="super-star star1">⭐</div>
+        <div class="super-star star2">⭐</div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar glass">
         <div class="container">
-           <div class="logo">
-    <div class="logo-wrapper">
-        <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
-    </div>
-    <span class="logo-text">PLC 2K26</span>
-</div>
+            <div class="logo">
+                <div class="logo-wrapper">
+                    <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
+                </div>
+                <span class="logo-text">PLC 2K26</span>
+            </div>
             <button class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </button>
@@ -137,8 +130,6 @@
                 <p class="timeline-subtitle">Daftar sekarang dan jangan lewatkan momen serunya!</p>
 
                 <div class="timeline-container">
-
-                    <!-- PENDAFTARAN -->
                     <div class="timeline-section-label"><span>📋 PENDAFTARAN</span></div>
 
                     <div class="timeline-item">
@@ -163,14 +154,12 @@
                         </div>
                     </div>
 
-                    <!-- DIVIDER -->
                     <div class="timeline-divider">
                         <span>⚡</span>
                         <span class="divider-text">ACARA LOMBA</span>
                         <span>⚡</span>
                     </div>
 
-                    <!-- HARI LOMBA -->
                     <div class="timeline-section-label"><span>🏆 HARI LOMBA</span></div>
 
                     <div class="timeline-item highlight-item">
@@ -201,14 +190,12 @@
                         </div>
                     </div>
 
-                    <!-- DIVIDER PUNCAK -->
                     <div class="timeline-divider climax-divider">
                         <span>🌟</span>
                         <span class="divider-text climax-divider-text">PUNCAK ACARA</span>
                         <span>🌟</span>
                     </div>
 
-                    <!-- GRAND FINAL -->
                     <div class="timeline-item climax-item">
                         <div class="timeline-badge climax-badge">🏆</div>
                         <div class="timeline-content climax-content">
@@ -223,7 +210,6 @@
                             <div class="climax-badge-text">🔥 JANGAN LEWATKAN! 🔥</div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

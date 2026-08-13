@@ -266,9 +266,31 @@ body {
     overflow: hidden;
 }
 
+/* Layer 1 - BIRU GELAP (atas) */
+.bg-mario {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(180deg, 
+            #0a0a1a 0%,
+            #0a1a3a 15%,
+            #0f2847 30%,
+            #14365c 45%,
+            #1a4470 60%,
+            #205285 75%,
+            #2a6099 90%,
+            #3a6eaa 100%
+        );
+    transition: opacity 1.5s ease-in-out;
+    opacity: 1;
+    z-index: 1;
+}
+
 /* ============================================
-   BACKGROUND WRAPPER - DINAMIS (SCROLL)
-   Menggunakan opacity untuk transisi yang smooth
+   BACKGROUND WRAPPER - SMOOTH SHADES
 ============================================ */
 .bg-wrapper {
     position: fixed;
@@ -280,7 +302,7 @@ body {
     overflow: hidden;
 }
 
-/* Layer background Mario (atas - sky blue & hijau rumput) */
+/* Layer 1 - BIRU GELAP (atas) */
 .bg-mario {
     position: absolute;
     top: 0;
@@ -289,22 +311,19 @@ body {
     height: 100%;
     background: 
         linear-gradient(180deg, 
-            #87CEEB 0%,
-            #7EC8E3 10%,
-            #6DB8D6 20%,
-            #5AA8C9 30%,
-            #54a4af 45%,
-            #41a39f 55%,
-            #1a997b 70%,
-            rgb(53, 153, 93) 85%,
-            #0b5c2b 100%
+            #0a0a2e 0%,
+            #0f1a4a 20%,
+            #142a5a 40%,
+            #1a3a6a 60%,
+            #2a4a7a 80%,
+            #3a5a8a 100%
         );
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 0.5s ease;
     opacity: 1;
     z-index: 1;
 }
 
-/* Layer background Wreck-It Ralph (tengah - oranye/merah) */
+/* Layer 2 - BIRU TERANG (bawah) */
 .bg-wreck {
     position: absolute;
     top: 0;
@@ -313,41 +332,21 @@ body {
     height: 100%;
     background: 
         linear-gradient(180deg,
-            #1a0a0a 0%,
-            #3a150a 15%,
-            #6b1a0a 30%,
-            #aa3a0a 45%,
-            #cc4a0a 60%,
-            #aa3a0a 75%,
-            #6b1a0a 90%,
-            #2a0a0a 100%
+            #3a5a8a 0%,
+            #4a6a9a 20%,
+            #5a7aaa 40%,
+            #6a8aba 60%,
+            #7a9aca 80%,
+            #8aaada 100%
         );
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 0.5s ease;
     opacity: 0;
     z-index: 2;
 }
 
-/* Layer background Wreck-It Ralph Blue (bawah - biru) */
+/* Hapus atau disable bg-wreck-blue */
 .bg-wreck-blue {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(180deg,
-            #0a0a1a 0%,
-            #0a1a3a 15%,
-            #0a2a5a 30%,
-            #0a4a8a 45%,
-            #0a5aaa 60%,
-            #0a4a8a 75%,
-            #0a2a5a 90%,
-            #0a0a1a 100%
-        );
-    transition: opacity 1.5s ease-in-out;
-    opacity: 0;
-    z-index: 3;
+    display: none;
 }
 
 /* ===== BINTANG BERKEDIP ===== */
@@ -546,11 +545,215 @@ body {
     100% { transform: rotate(360deg) scale(1); opacity: 0.8; }
 }
 
-/* ===== RESPONSIVE ELEMEN ===== */
+/* ============================================
+   RESPONSIVE - TAMPILKAN EMOJI DI HP
+============================================ */
 @media (max-width: 768px) {
-    .coin, .coin2, .coin3, .coin4, .brick, .brick2, .brick3,
-    .tree, .tree2, .tree3, .hammer2, .super-star, .star2,
-    .cloud, .cloud4, .mushroom, .m4, .question-block { display: none; }
+    /* HAMBURGER */
+    .hamburger { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        padding: 15px 0;
+        border-top: 2px solid var(--secondary);
+        margin-top: 10px;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-link { 
+        width: 100%; 
+        justify-content: center; 
+        font-size: 0.55rem; 
+        padding: 12px; 
+    }
+
+    /* HERO */
+    .pixel-title { font-size: 3.5rem; letter-spacing: 4px; }
+    .pixel-subtitle { font-size: 1rem; letter-spacing: 3px; }
+    .hero-stats { 
+        flex-direction: column; 
+        gap: 10px; 
+        align-items: center; 
+    }
+    
+    /* SECTION */
+    .section h2 { font-size: 1.3rem; flex-wrap: wrap; }
+    .pixel-card { padding: 25px; }
+    .competition-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+    }
+
+    /* TIMELINE */
+    .timeline-badge { 
+        width: 34px; 
+        height: 34px; 
+        min-width: 34px; 
+        font-size: 0.8rem; 
+    }
+    .timeline-content { padding: 10px 12px; }
+    .timeline-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 4px; 
+    }
+    .timeline-date { font-size: 0.4rem; }
+    .wave-tag { font-size: 0.4rem; padding: 2px 10px; }
+    .timeline-content p { font-size: 0.5rem; }
+    .event-icons { 
+        font-size: 0.8rem; 
+        flex-wrap: wrap; 
+        gap: 4px; 
+    }
+    .event-icons span { padding: 2px 5px; }
+    .climax-icons { font-size: 0.9rem; flex-wrap: wrap; }
+    .climax-text { font-size: 0.5rem !important; }
+    .climax-badge-text { font-size: 0.45rem !important; }
+    .climax-badge { 
+        width: 34px; 
+        height: 34px; 
+        min-width: 34px; 
+        font-size: 0.9rem !important; 
+    }
+    .timeline-section-label span { 
+        font-size: 0.55rem; 
+        padding: 4px 12px; 
+    }
+    .divider-text { font-size: 0.45rem; }
+
+    /* ===== BACKGROUND EMOJI DI HP - TETAP TAMPIL ===== */
+    /* Elemen background tetap keliatan tapi lebih kecil & transparan */
+    .coin, .coin3, .coin4, 
+    .brick, .brick2, .brick3,
+    .tree, .tree2, .tree3, 
+    .hammer2, 
+    .super-star, .star2,
+    .cloud, .cloud4, 
+    .mushroom, .m4, 
+    .question-block,
+    .flag-pole, .pipe, .castle, 
+    .controller, .trophy, .candy, 
+    .balloon, .star-burst,
+    .powerup, .game-element, .flower-bg {
+        opacity: 0.2;
+        font-size: 1.2rem;
+        display: block !important; /* Paksa tampil */
+    }
+    
+    /* Sembunyikan yang benar-benar mengganggu */
+    .shooting-star, .shooting-star2, .shooting-star3 {
+        display: none;
+    }
+    
+    /* Typing */
+    .typing-text {
+        font-size: 1rem;
+        letter-spacing: 3px;
+    }
+    .typing-cursor {
+        font-size: 1rem;
+    }
+    .typing-container {
+        min-height: 40px;
+        margin: 15px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pixel-title { font-size: 2.5rem; letter-spacing: 2px; }
+    .pixel-subtitle { font-size: 0.8rem; }
+    .logo-wrapper img { height: 28px; }
+    .logo-text { font-size: 0.9rem; }
+    .btn-pixel { font-size: 0.55rem; padding: 10px 18px; }
+    .section-btn { 
+        flex-direction: column; 
+        align-items: stretch; 
+    }
+    .section-btn .btn-small { justify-content: center; }
+    .hero { 
+        padding: 80px 0 40px; 
+        min-height: 60vh; 
+    }
+    .pixel-card { padding: 18px; }
+    .section h2 { font-size: 0.9rem; }
+    .pixel-icon { font-size: 1.6rem; }
+    .competition-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+    }
+    .card { padding: 18px 12px; }
+    .card-icon { font-size: 2rem; }
+    .card h3 { font-size: 0.5rem; }
+    .card p { font-size: 0.4rem; }
+    .contact-list li { font-size: 0.55rem; }
+
+    /* TIMELINE */
+    .timeline-badge { 
+        width: 30px; 
+        height: 30px; 
+        min-width: 30px; 
+        font-size: 0.65rem; 
+        border-width: 2px; 
+    }
+    .climax-badge { 
+        width: 30px; 
+        height: 30px; 
+        min-width: 30px; 
+        font-size: 0.8rem !important; 
+    }
+    .timeline-content { padding: 8px 10px; }
+    .timeline-content p { font-size: 0.45rem; }
+    .event-icons { font-size: 0.7rem; }
+    .climax-icons { font-size: 0.8rem; }
+    .climax-text { font-size: 0.45rem !important; }
+    .climax-badge-text { font-size: 0.4rem !important; }
+    .timeline-item { gap: 10px; }
+    .timeline-container { gap: 10px; }
+    .timeline-section-label span { 
+        font-size: 0.45rem; 
+        padding: 3px 10px; 
+    }
+    .divider-text { 
+        font-size: 0.4rem; 
+        letter-spacing: 1px; 
+    }
+    .timeline-divider { 
+        gap: 10px; 
+        padding: 10px 0 6px 0; 
+    }
+
+    /* ===== BACKGROUND EMOJI DI HP KECIL ===== */
+    .coin, .coin3, .coin4, 
+    .brick, .brick2, .brick3,
+    .tree, .tree2, .tree3, 
+    .hammer2, 
+    .super-star, .star2,
+    .cloud, .cloud4, 
+    .mushroom, .m4, 
+    .question-block,
+    .flag-pole, .pipe, .castle, 
+    .controller, .trophy, .candy, 
+    .balloon, .star-burst,
+    .powerup, .game-element, .flower-bg {
+        opacity: 0.1;
+        font-size: 0.9rem;
+        display: block !important;
+    }
+    
+    /* Typing */
+    .typing-text {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+    .typing-cursor {
+        font-size: 0.7rem;
+    }
+    .typing-container {
+        min-height: 30px;
+        margin: 10px 0 15px;
+    }
 }
 
 /* ============================================

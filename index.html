@@ -17,6 +17,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+    <!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen">
+    <div class="loading-container">
+        <!-- Logo animasi -->
+        <div class="loading-logo">
+            <div class="loading-logo-wrapper">
+                <span class="loading-emoji">🍄</span>
+                <span class="loading-emoji">⭐</span>
+                <span class="loading-emoji">🔨</span>
+            </div>
+            <h1 class="loading-title">AMICCO</h1>
+            <p class="loading-subtitle">Find Your Wonder</p>
+        </div>
+        
+        <!-- Progress Bar Pixel -->
+        <div class="loading-progress-container">
+            <div class="loading-progress-bar">
+                <div class="loading-progress-fill" id="progressFill"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+        
+        <!-- Loading Tips -->
+        <div class="loading-tips" id="loadingTips">
+            <span class="tip-icon">💡</span>
+            <span class="tip-text">Did you know? Mario pertama kali muncul di tahun 1981!</span>
+        </div>
+        
+        <!-- Pixel Animation -->
+        <div class="loading-pixels">
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+        </div>
+    </div>
+</div>
 
          <!-- ===== BACKGROUND DINAMIS (SCROLL) ===== -->
     <div class="bg-wrapper" id="bgWrapper">
@@ -84,21 +123,24 @@
     </div>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="pixel-badge">2026</div>
-                <h1 class="pixel-title glow-text">AMICCO</h1>
-                <p class="pixel-subtitle">Find Your Wonder</p>
-                <a href="#registration" class="btn-pixel pulse-btn"><i class="fas fa-gamepad"></i> DAFTAR SEKARANG!</a>
-                <div class="hero-stats">
-                    <span>🏆 100+ Peserta</span>
-                    <span>🎯 8 Lomba</span>
-                    <span>💰 Prize Pool 10jt++</span>
-                </div>
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <div class="pixel-badge">2K26</div>
+            <h1 class="pixel-title glow-text">AMICCO</h1>
+            <div class="typing-container">
+                <span class="typing-text" id="typingText"></span>
+                <span class="typing-cursor" id="typingCursor">|</span>
+            </div>
+            <a href="#registration" class="btn-pixel pulse-btn"><i class="fas fa-gamepad"></i> DAFTAR SEKARANG!</a>
+            <div class="hero-stats">
+                <span>🏆 100+ Peserta</span>
+                <span>🎯 8 Lomba</span>
+                <span>💰 Prize Pool 10jt++</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ABOUT -->
     <section id="about" class="section">

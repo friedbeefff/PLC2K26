@@ -649,7 +649,7 @@ body {
 .btn-pixel:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 10px 50px rgba(229, 37, 33, 0.4), 0 0 50px rgba(251, 208, 0, 0.2);
-    background: #c41e1a;
+    background: #0f69e7;
 }
 
 .btn-small {

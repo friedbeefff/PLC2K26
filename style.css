@@ -332,12 +332,12 @@ body {
     height: 100%;
     background: 
         linear-gradient(180deg,
-            #3a5a8a 0%,
-            #4a6a9a 20%,
-            #5a7aaa 40%,
-            #6a8aba 60%,
-            #7a9aca 80%,
-            #8aaada 100%
+            #6488be 0%,
+            #7497ca 20%,
+            #8cabd8 40%,
+            #93bedf 60%,
+            #96c3d6 80%,
+            #c9e8f5 100%
         );
     transition: opacity 0.5s ease;
     opacity: 0;
@@ -1862,3 +1862,41 @@ footer p {
     }
 }
 
+/* ============================================
+   HERO LOGO PNG
+============================================ */
+.logo-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px;
+    padding: 0 20px;
+}
+
+.hero-logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 40px rgba(151, 151, 191, 0.5)) 
+            drop-shadow(0 0 80px rgba(225, 226, 255, 0.3));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        max-width: 250px;
+    }
+}

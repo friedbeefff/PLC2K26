@@ -43,10 +43,7 @@
         
         <!-- BATU BATA - pastikan ini ada -->
         <div class="brick brick1">🧱</div>
-        <div class="brick brick2">🧱</div>
-        <div class="brick brick3">🧱</div>
         <div class="brick brick4">🧱</div>
-        <div class="brick brick5">🧱</div>
         <div class="brick brick6">🧱</div>
         
         <div class="tree tree1">🌳</div>
@@ -57,27 +54,34 @@
         <div class="super-star star2">⭐</div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar glass">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-wrapper">
-                    <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
+        <!-- NAVBAR DENGAN GARIS BATA DI ATAS -->
+    <div class="navbar-wrapper">
+        <!-- GARIS BATA ATAS -->
+        <div class="navbar-top-brick"></div>
+        
+        <nav class="navbar glass">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-wrapper">
+                        <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
+                    </div>
+                    <span class="logo-text">PLC 2K26</span>
                 </div>
-                <span class="logo-text">PLC 2K26</span>
+                
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about" class="nav-link"><span class="nav-emoji">🍄</span> About</a></li>
+                    <li><a href="#competitions" class="nav-link"><span class="nav-emoji">⭐</span> Competitions</a></li>
+                    <li><a href="#timeline" class="nav-link"><span class="nav-emoji">📅</span> Timeline</a></li>
+                    <li><a href="#registration" class="nav-link"><span class="nav-emoji">🔨</span> Register</a></li>
+                    <li><a href="#contact" class="nav-link"><span class="nav-emoji">📞</span> Contact</a></li>
+                </ul>
             </div>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link"><span class="nav-emoji">🍄</span> About</a></li>
-                <li><a href="#competitions" class="nav-link"><span class="nav-emoji">⭐</span> Competitions</a></li>
-                <li><a href="#timeline" class="nav-link"><span class="nav-emoji">📅</span> Timeline</a></li>
-                <li><a href="#registration" class="nav-link"><span class="nav-emoji">🔨</span> Register</a></li>
-                <li><a href="#contact" class="nav-link"><span class="nav-emoji">📞</span> Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <!-- HERO -->
     <section class="hero">

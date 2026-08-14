@@ -30,7 +30,7 @@ function updateBackgroundShade() {
     progress = Math.min(Math.max(progress, 0), 1);
     
     // Smooth easing
-    const eased = progress < 0.5 ? 
+     eased = progress < 0.5 ? 
         2 * progress * progress : 
         -1 + (4 - 2 * progress) * progress;
     
@@ -76,8 +76,8 @@ console.log('🌊 Smooth shades biru: Gelap → Terang (continuous)');
 // COUNTDOWN TIMER
 // ============================================
 function updateCountdown() {
-    const targetDate = new Date('2026-10-01T00:00:00').getTime();
-    const now = new Date().getTime();
+     targetDate = new Date('2026-10-01T00:00:00').getTime();
+     now = new Date().getTime();
     const distance = targetDate - now;
     
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -220,8 +220,8 @@ function startTypingEffect() {
     const textElement = document.getElementById('typingText');
     
     const texts = [
-        'Find Your Wonder',
-        '✨ Find Your Wonder ✨'
+        'Ready, Set, Yahooo',
+        '✨ Ready, Set, Yahooo ✨'
     ];
     
     let textIndex = 0;

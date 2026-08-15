@@ -78,9 +78,9 @@ console.log('🌊 Smooth shades biru: Gelap → Terang (continuous)');
 function updateCountdown() {
      targetDate = new Date('2026-10-01T00:00:00').getTime();
      now = new Date().getTime();
-    const distance = targetDate - now;
+     distance = targetDate - now;
     
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+     days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -220,8 +220,8 @@ function startTypingEffect() {
     const textElement = document.getElementById('typingText');
     
     const texts = [
-        'Ready, Set, Yahooo',
-        '✨ Ready, Set, Yahooo ✨'
+        'Ready, Set, Yahoo!',
+        '✨ Ready, Set, Yahoo! ✨'
     ];
     
     let textIndex = 0;

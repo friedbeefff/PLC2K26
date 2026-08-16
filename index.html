@@ -1,4 +1,182 @@
-<!-- TIMELINE -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMICCO - Find Your Wonder</title>
+    
+    <!-- ===== FAVICON / LOGO WEB ===== -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    
+    <!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen">
+    <div class="loading-container">
+        <div class="loading-logo">
+            <div class="loading-logo-wrapper">
+                <span class="loading-emoji">🍄</span>
+                <span class="loading-emoji">⭐</span>
+                <span class="loading-emoji">🔨</span>
+            </div>
+            <h1 class="loading-title">AMICCO</h1>
+            <p class="loading-subtitle">Find Your Wonder</p>
+        </div>
+        
+        <div class="loading-progress-container">
+            <div class="loading-progress-bar">
+                <div class="loading-progress-fill" id="progressFill"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+        
+        <div class="loading-tips" id="loadingTips">
+            <span class="tip-icon">💡</span>
+            <span class="tip-text">Did you know? Mario pertama kali muncul di tahun 1981!</span>
+        </div>
+        
+        <div class="loading-pixels">
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+            <span class="pixel-block"></span>
+        </div>
+    </div>
+</div>
+
+    <!-- ===== BACKGROUND DINAMIS (SCROLL) ===== -->
+    <div class="bg-wrapper" id="bgWrapper">
+        <div class="bg-mario" id="bgMario"></div>
+        <div class="bg-wreck" id="bgWreck"></div>
+        <div class="bg-wreck-blue" id="bgWreckBlue"></div>
+        
+        <div class="stars"></div>
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="cloud cloud3">☁️</div>
+        <div class="cloud cloud4">☁️</div>
+        <div class="mushroom m1">🍄</div>
+        <div class="mushroom m2">🍄</div>
+        <div class="mushroom m4">🍄</div>
+        <div class="shooting-star">⭐</div>
+        <div class="shooting-star2">⭐</div>
+        <div class="shooting-star3">⭐</div>
+        <div class="question-block">❓</div>
+        <div class="coin coin1">🪙</div>
+        <div class="coin coin3">🪙</div>
+        <div class="coin coin4">🪙</div>
+        
+        <div class="brick brick1">🧱</div>
+        <div class="brick brick4">🧱</div>
+        <div class="brick brick6">🧱</div>
+        
+        <div class="tree tree1">🌳</div>
+        <div class="tree tree2">🌳</div>
+        <div class="tree tree3">🌳</div>
+        <div class="hammer2">🔨</div>
+        <div class="super-star star1">⭐</div>
+        <div class="super-star star2">⭐</div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar-top-brick"></div>
+        
+        <nav class="navbar glass">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-wrapper">
+                        <img src="logo.png" alt="Logo PLC 2K26" id="logoImg" />
+                    </div>
+                    <span class="logo-text">PLC 2K26</span>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about" class="nav-link"><span class="nav-emoji">🍄</span> About</a></li>
+                    <li><a href="#competitions" class="nav-link"><span class="nav-emoji">⭐</span> Competitions</a></li>
+                    <li><a href="#timeline" class="nav-link"><span class="nav-emoji">📅</span> Timeline</a></li>
+                    <li><a href="#registration" class="nav-link"><span class="nav-emoji">🔨</span> Register</a></li>
+                    <li><a href="#contact" class="nav-link"><span class="nav-emoji">📞</span> Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="pixel-badge">2K26</div>
+                
+                <div class="logo-hero">
+                    <img src="logo-amicco.png" alt="AMICCO" class="hero-logo" />
+                </div>
+                
+                <div class="typing-container">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor" id="typingCursor">|</span>
+                </div>
+                
+                <a href="https://forms.gle/izn1sfLVHSm1QRWy7" class="btn-pixel pulse-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-gamepad"></i> DAFTAR SEKARANG!
+                </a>
+                
+                <div class="hero-stats">
+                    <span>🏆 100+ Peserta</span>
+                    <span>🎯 6 Lomba</span>
+                    <span>💰 Prize Pool 10jt++</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="pixel-card glass card-hover">
+                <h2><span class="pixel-icon bounce-icon">🍄</span> About Us</h2>
+                <p>AMICCO adalah event kolaborasi antara dunia <span class="highlight">Mario</span> dan <span class="highlight2">Wreck-It Ralph</span>! Temukan keajaiban dalam setiap tantangan.</p>
+                <div class="section-btn">
+                    <a href="https://drive.google.com/file/d/1TCOEtGqpexIjXAvm_9oGPa30eVPYkGTW/view?usp=drive_link" class="btn-pixel btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-alt"></i> More About Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPETITIONS -->
+    <section id="competitions" class="section">
+        <div class="container">
+            <div class="pixel-card glass card-hover">
+                <h2><span class="pixel-icon spin-icon">⭐</span> Competitions</h2>
+                <div class="competition-grid">
+                    <div class="card card-3d"><div class="card-icon">🏀</div><h3>Basket 3x3 SMA</h3><p>Show your teamwork!</p></div>
+                    <div class="card card-3d"><div class="card-icon">🏀</div><h3>Basket 3x3 SMP</h3><p>Show your teamwork!</p></div>
+                    <div class="card card-3d"><div class="card-icon">📚</div><h3>English Olympic</h3><p>Test your English skills!</p></div>
+                    <div class="card card-3d"><div class="card-icon">💃</div><h3>Kpop Dance</h3><p>Tunjukkan gerakanmu!</p></div>
+                    <div class="card card-3d"><div class="card-icon">🗣️</div><h3>Spelling Bee</h3><p>Eja kata dengan tepat!</p></div>
+                    <div class="card card-3d"><div class="card-icon">🎭</div><h3>Cosplay Walk</h3><p>Show off your best costume!</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- TIMELINE -->
 <section id="timeline" class="section">
     <div class="container">
         <div class="pixel-card glass card-hover">
@@ -111,3 +289,68 @@
         </div>
     </div>
 </section>
+    <!-- REGISTRATION -->
+    <section id="registration" class="section">
+        <div class="container">
+            <div class="pixel-card glass card-hover">
+                <h2><span class="pixel-icon shake-icon">🔨</span> Registration</h2>
+                <p>Pendaftaran dibuka hingga <span class="highlight">20 September 2026</span>!</p>
+                <div class="section-btn">
+                    <a href="https://forms.gle/izn1sfLVHSm1QRWy7" class="btn-pixel btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-edit"></i> Daftar Sekarang
+                    </a>
+                </div>
+                <div class="countdown">
+                    <span>⏳</span>
+                    <span id="countdown-timer">Slot Terbatas!!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="pixel-card glass card-hover">
+                <h2><span class="pixel-icon float-icon">📞</span> Contact Person</h2>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-phone"></i> 
+                        <a href="https://wa.me/628996801450" target="_blank" rel="noopener noreferrer" style="color: #eee; text-decoration: none; transition: color 0.3s;">
+                            +62 899-6801-450
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fab fa-instagram"></i> 
+                        <a href="https://instagram.com/official_posh" target="_blank" rel="noopener noreferrer" style="color: #eee; text-decoration: none; transition: color 0.3s;">
+                            @official_posh
+                        </a>
+                    </li>
+                </ul>
+                <div class="section-btn">
+                    <a href="https://wa.me/628996801450" class="btn-pixel btn-small whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">🍄 AMICCO</div>
+                <p>© 2026 - <span class="pixel-text">Find Your Wonder</span></p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/official_posh" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@smaburbandarlampung" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtu.be/8Kw8W2_kYUg?si=qG8WgSvxdD1dH33b" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

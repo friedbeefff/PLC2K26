@@ -22,6 +22,30 @@ body {
 }
 
 /* ============================================
+   COMPETITIONS - CARD LINK
+============================================ */
+.card-link {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+    transform: translateY(-5px);
+}
+
+.card-link .card {
+    height: 100%;
+    transition: all 0.4s;
+}
+
+.card-link:hover .card {
+    border-color: var(--secondary);
+    box-shadow: 0 20px 60px rgba(251,208,0,0.15);
+}
+
+/* ============================================
    LOADING SCREEN
 ============================================ */
 #loadingScreen {

@@ -260,41 +260,6 @@ body {
 }
 
 /* ============================================
-   HAMBURGER - DISABLE
-============================================ */
-.hamburger {
-    display: none !important;
-}
-
-.nav-links {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    padding: 8px 0;
-    background: rgba(0,0,0,0.3);
-    border-radius: 8px;
-    margin-top: 4px;
-}
-
-.nav-links li {
-    list-style: none;
-}
-
-.nav-link {
-    font-size: 0.4rem !important;
-    padding: 4px 8px !important;
-    background: rgba(255,255,255,0.05);
-    border-radius: 4px;
-    color: #fff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-}
-
-/* ============================================
    BACKGROUND WRAPPER - SMOOTH SHADES
 ============================================ */
 .bg-wrapper {
@@ -720,6 +685,7 @@ body {
     background: none;
     white-space: nowrap;
 }
+
 /* ============================================
    NAV LINKS
 ============================================ */
@@ -777,6 +743,8 @@ body {
     font-size: 2rem;
     cursor: pointer;
     text-shadow: 0 0 20px rgba(251,208,0,0.3);
+    padding: 8px 12px;
+    z-index: 1001;
 }
 
 /* ============================================
@@ -1314,20 +1282,128 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .hamburger { display: block; }
+    /* ===== NAVBAR MOBILE ===== */
+    .navbar .container {
+        flex-wrap: wrap;
+        padding: 0 12px;
+        gap: 4px;
+    }
+    
+    .logo-wrapper img {
+        height: 35px !important;
+        max-width: 45px !important;
+    }
+    
+    .logo-text {
+        font-size: 0.85rem !important;
+        letter-spacing: 1px;
+    }
+    
+    .logo {
+        gap: 8px;
+        flex-shrink: 1;
+    }
+    
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+        display: block !important;
+        font-size: 1.6rem;
+        background: rgba(255,255,255,0.08);
+        padding: 6px 14px;
+        border-radius: 8px;
+        border: 2px solid rgba(251,208,0,0.2);
+        color: var(--secondary);
+        cursor: pointer;
+        transition: all 0.3s;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hamburger:hover {
+        background: rgba(251,208,0,0.15);
+        transform: scale(1.05);
+    }
+    
+    .hamburger i {
+        font-size: 1.4rem;
+    }
+    
+    /* ===== NAV LINKS ===== */
     .nav-links {
-        display: none;
+        display: none !important;
         flex-direction: column;
         width: 100%;
-        gap: 8px;
-        padding: 15px 0;
+        gap: 5px;
+        padding: 12px 10px;
+        margin-top: 8px;
         border-top: 2px solid var(--secondary);
-        margin-top: 10px;
+        max-height: 60vh;
+        overflow-y: auto;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(12px);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
-    .nav-links.active { display: flex; }
-    .nav-links li { width: 100%; }
-    .nav-link { width: 100%; justify-content: center; font-size: 0.55rem; padding: 12px; }
+    
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        list-style: none;
+    }
+    
+    .nav-link {
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 0.5rem !important;
+        padding: 10px 14px !important;
+        text-align: center !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.06) !important;
+        border-radius: 8px !important;
+        transition: all 0.3s;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+    
+    .nav-link:hover {
+        background: var(--secondary) !important;
+        color: #000 !important;
+        transform: scale(1.03);
+        border-color: var(--secondary) !important;
+    }
+    
+    .nav-emoji {
+        font-size: 0.9rem;
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .nav-links::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.05);
+        border-radius: 4px;
+    }
+    
+    .nav-links::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border-radius: 4px;
+    }
 
+    /* ===== HERO ===== */
     .pixel-title { font-size: 3.5rem; letter-spacing: 4px; }
     .pixel-subtitle { font-size: 1rem; letter-spacing: 3px; }
     .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
@@ -1335,6 +1411,7 @@ footer p {
     .pixel-card { padding: 25px; }
     .competition-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 
+    /* ===== TIMELINE ===== */
     .timeline-badge { width: 34px; height: 34px; min-width: 34px; font-size: 0.8rem; }
     .timeline-content { padding: 10px 12px; }
     .timeline-header { flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -1370,8 +1447,8 @@ footer p {
 @media (max-width: 480px) {
     .pixel-title { font-size: 2.5rem; letter-spacing: 2px; }
     .pixel-subtitle { font-size: 0.8rem; }
-    .logo-wrapper img { height: 28px; }
-    .logo-text { font-size: 0.9rem; }
+    .logo-wrapper img { height: 28px !important; max-width: 35px !important; }
+    .logo-text { font-size: 0.7rem !important; }
     .btn-pixel { font-size: 0.55rem; padding: 10px 18px; }
     .section-btn { flex-direction: column; align-items: stretch; }
     .section-btn .btn-small { justify-content: center; }
@@ -1414,5 +1491,22 @@ footer p {
     
     .hero-logo {
         max-width: 250px;
+    }
+    
+    /* ===== HAMBURGER HP KECIL ===== */
+    .hamburger {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+        padding: 4px 10px;
+    }
+    
+    .hamburger i {
+        font-size: 1.1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.45rem !important;
+        padding: 8px 10px !important;
     }
 }

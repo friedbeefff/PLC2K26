@@ -1907,3 +1907,190 @@ footer p {
         justify-content: center;
     }
 }
+
+/* ============================================
+   SPONSOR - CALLING SPONSOR
+============================================ */
+.sponsor-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0 30px;
+}
+
+.benefit-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(251,208,0,0.08);
+    border-radius: 10px;
+    padding: 20px 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.benefit-card:hover {
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+    background: rgba(251,208,0,0.03);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.benefit-card h4 {
+    font-size: 0.55rem;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+.benefit-card p {
+    font-size: 0.4rem;
+    color: #888;
+    margin: 0;
+}
+
+/* ===== SPONSOR CONTACT PERSON ===== */
+.sponsor-contact {
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top: 2px solid rgba(251,208,0,0.1);
+}
+
+.sponsor-cp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.sponsor-cp-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s;
+}
+
+.sponsor-cp-card:hover {
+    background: rgba(251,208,0,0.05);
+    border-color: rgba(251,208,0,0.15);
+    transform: translateX(5px);
+}
+
+.cp-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.cp-info h4 {
+    font-size: 0.6rem;
+    color: var(--secondary);
+    margin-bottom: 6px;
+}
+
+.cp-info p {
+    font-size: 0.5rem;
+    color: #aaa;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cp-info p i {
+    color: var(--secondary);
+    width: 18px;
+    font-size: 0.6rem;
+}
+
+.cp-info p a:hover {
+    color: var(--secondary) !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .sponsor-benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsor-benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .benefit-card {
+        padding: 15px 10px;
+    }
+    
+    .benefit-icon {
+        font-size: 1.6rem;
+    }
+    
+    .benefit-card h4 {
+        font-size: 0.5rem;
+    }
+    
+    .benefit-card p {
+        font-size: 0.4rem;
+    }
+    
+    .sponsor-cp-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .sponsor-cp-card {
+        padding: 15px;
+    }
+    
+    .cp-icon {
+        font-size: 2rem;
+    }
+    
+    .cp-info h4 {
+        font-size: 0.5rem;
+    }
+    
+    .cp-info p {
+        font-size: 0.45rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsor-benefit-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .benefit-card {
+        padding: 12px 8px;
+    }
+    
+    .benefit-icon {
+        font-size: 1.4rem;
+    }
+    
+    .benefit-card h4 {
+        font-size: 0.45rem;
+    }
+    
+    .benefit-card p {
+        font-size: 0.35rem;
+    }
+    
+    .sponsor-cp-card {
+        padding: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cp-info p {
+        justify-content: center;
+    }
+}

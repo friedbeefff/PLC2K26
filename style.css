@@ -2094,3 +2094,71 @@ footer p {
         justify-content: center;
     }
 }
+
+/* ============================================
+   WHATSAPP BUTTON SMALL
+============================================ */
+.btn-wa-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #25D366;
+    color: #fff !important;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.45rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid #25D366;
+    margin-top: 4px;
+}
+
+.btn-wa-small:hover {
+    background: #1da851;
+    transform: scale(1.05);
+    color: #fff !important;
+    border-color: #1da851;
+}
+
+.btn-wa-small i {
+    font-size: 0.55rem;
+    color: #fff;
+}
+
+/* ===== CONTACT LIST - WA BUTTON ===== */
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    transition: all 0.3s;
+    flex-wrap: wrap;
+}
+
+.contact-list li .btn-wa-small {
+    margin-left: auto;
+}
+
+/* ===== SPONSOR CP - WA BUTTON ===== */
+.sponsor-cp-card .cp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sponsor-cp-card .cp-info .btn-wa-small {
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .contact-list li {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .contact-list li .btn-wa-small {
+        margin-left: 40px;
+    }
+}

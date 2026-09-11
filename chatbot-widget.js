@@ -50,7 +50,7 @@
       <div id="plc-chat-header">
         <div class="bot-avatar">🍄</div>
         <div class="bot-info">
-          <h2>PLC 2K26 Bot</h2>
+          <h2>PLC 2K26 AI Assistant</h2>
           <p>AMICCO - Find Your Wonder</p>
         </div>
         <button id="plc-close-btn">×</button>

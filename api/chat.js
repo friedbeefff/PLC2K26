@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   const URL = 'https://api.groq.com/openai/v1/chat/completions';
   
   // Pilih model. Llama 3.1 8B paling tinggi limit hariannya (14.400/hari).
-  const MODEL = 'llama-3.1-8b-instant'; 
+  const MODEL = 'openai/gpt-oss-20b';
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
 Jawab dengan singkat, santai, pakai bahasa Indonesia, dan emoji seperlunya.

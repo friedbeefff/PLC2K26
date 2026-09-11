@@ -10,16 +10,12 @@ export default async function handler(req, res) {
   if (!message) return res.status(400).json({ error: 'Message required' });
   
   const API_KEY = process.env.GROQ_API_KEY;
-  
-  if (!API_KEY) {
-    return res.status(500).json({ error: 'API key not configured' });
-  }
+  if (!API_KEY) return res.status(500).json({ error: 'API key not configured' });
   
   const URL = 'https://api.groq.com/openai/v1/chat/completions';
   const MODEL = 'openai/gpt-oss-20b';
   
-  // ===== SYSTEM PROMPT (dipangkas biar hemat token) =====
-  const SYSTEM_PROMPT = const SYSTEM_PROMPT = `Kamu adalah "AMICCO Bot" — asisten virtual resmi untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
+  const SYSTEM_PROMPT = `Kamu adalah "AMICCO Bot" — asisten virtual resmi untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
 
 IDENTITAS KAMU (WAJIB DIINGAT):
 - Nama kamu: AMICCO Bot (atau Asisten PLC 2K26)
@@ -55,18 +51,15 @@ INFO EVENT:
 - CP Basket: Immanuel (SMA) 0812-8232-0345, Gracia (SMP) 0895-0241-5525
 - CP Cerpen: Patricia (SMA) 0815-3233-0038, Jocelyn (SMP) 0878-7823-0338
 - CP English Olympiad & Spelling Bee: Kenji 0815-9510-337
-- CP Kpop Dance: Darlene 0878-9057-4950`;
+- CP Kpop Dance: Darlene 0878-9057-4950
 
 Jawab HANYA seputar PLC 2K26.`;
 
-  // ===== SLIDING WINDOW: Ambil 3 pasang percakapan terakhir =====
   let recentHistory = [];
   if (Array.isArray(history) && history.length > 0) {
-    // Ambil maksimal 6 pesan terakhir (3 pasang user+bot)
     recentHistory = history.slice(-6);
   }
 
-  // ===== SUSUN MESSAGES =====
   const messages = [
     { role: 'system', content: SYSTEM_PROMPT },
     ...recentHistory,
@@ -84,7 +77,7 @@ Jawab HANYA seputar PLC 2K26.`;
         model: MODEL,
         messages: messages,
         temperature: 0.7,
-        max_tokens: 500 // Batasi panjang jawaban biar hemat token
+        max_tokens: 500
       })
     });
     
@@ -93,7 +86,7 @@ Jawab HANYA seputar PLC 2K26.`;
     if (data.choices && data.choices[0] && data.choices[0].message) {
       return res.status(200).json({ 
         reply: data.choices[0].message.content,
-        usage: data.usage // Buat pantau token terpakai
+        usage: data.usage
       });
     }
     

@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
   
   const API_KEY = process.env.GEMINI_API_KEY; // ← Dibaca dari Environment Variable
-  const MODEL = 'gemini-2.5-flash';
+  const MODEL = 'gemini-3.6-flash';
   const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).

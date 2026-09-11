@@ -1,78 +1,60 @@
 (function() {
   const styles = `
-  /* ===== BUBBLE "AI!" ANIMASI ===== */
-#plc-ai-bubble {
-  position: fixed;
-  bottom: 95px;
-  right: 30px;
-  background: linear-gradient(135deg, #e63946, #ff6b6b);
-  color: white;
-  padding: 8px 14px;
-  border-radius: 18px 18px 18px 4px;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.15);
-  z-index: 9998;
-  cursor: pointer;
-  animation: aiBubblePop 0.5s ease, aiBubbleFloat 2s ease-in-out infinite 0.5s;
-  pointer-events: auto;
-  white-space: nowrap;
-}
-
-#plc-ai-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  right: 20px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 10px solid #e63946;
-  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
-}
-
-#plc-ai-bubble:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.7), 0 0 0 3px rgba(255, 255, 255, 0.25);
-}
-
-@keyframes aiBubblePop {
-  0% { opacity: 0; transform: scale(0.3) translateY(20px); }
-  60% { opacity: 1; transform: scale(1.1) translateY(-5px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes aiBubbleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Animasi getar biar makin menarik perhatian */
-#plc-ai-bubble.shake {
-  animation: aiBubbleShake 0.5s ease;
-}
-
-@keyframes aiBubbleShake {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-8deg) scale(1.05); }
-  75% { transform: rotate(8deg) scale(1.05); }
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 480px) {
-  #plc-ai-bubble {
-    bottom: 85px;
-    right: 20px;
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
     #plc-chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: 'Segoe UI', sans-serif; }
-    #plc-chat-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #e63946, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6), 0 0 0 4px rgba(30, 30, 47, 0.8); transition: transform 0.3s; }
+    #plc-chat-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #e63946, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6), 0 0 0 4px rgba(30, 30, 47, 0.8); transition: transform 0.3s; position: relative; z-index: 9999; }
     #plc-chat-bubble:hover { transform: scale(1.1); }
     #plc-chat-bubble svg { width: 28px; height: 28px; fill: white; }
+
+    /* ===== BUBBLE "AI!" ===== */
+    #plc-ai-bubble {
+      position: fixed;
+      bottom: 95px;
+      right: 30px;
+      background: linear-gradient(135deg, #e63946, #ff6b6b);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 18px 18px 18px 4px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.15);
+      z-index: 9998;
+      cursor: pointer;
+      animation: aiBubblePop 0.5s ease, aiBubbleFloat 2s ease-in-out infinite 0.5s;
+      white-space: nowrap;
+    }
+    #plc-ai-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid #e63946;
+      filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+    }
+    #plc-ai-bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(230, 57, 70, 0.7), 0 0 0 3px rgba(255, 255, 255, 0.25);
+    }
+    @keyframes aiBubblePop {
+      0% { opacity: 0; transform: scale(0.3) translateY(20px); }
+      60% { opacity: 1; transform: scale(1.1) translateY(-5px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes aiBubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    #plc-ai-bubble.shake { animation: aiBubbleShake 0.5s ease; }
+    @keyframes aiBubbleShake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg) scale(1.05); }
+      75% { transform: rotate(8deg) scale(1.05); }
+    }
+
     #plc-chat-popup { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 550px; background: #1e1e2f; border-radius: 20px; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 60px rgba(230, 57, 70, 0.3); display: none; flex-direction: column; overflow: hidden; border: 1px solid #444; z-index: 10000; animation: slideUp 0.3s ease; }
     #plc-chat-popup.active { display: flex; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -102,7 +84,10 @@
     @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-8px); } }
     #plc-chat-messages::-webkit-scrollbar { width: 4px; }
     #plc-chat-messages::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
-    @media (max-width: 480px) { #plc-chat-popup { width: calc(100% - 32px); right: 16px; bottom: 90px; height: 60vh; } }
+    @media (max-width: 480px) { 
+      #plc-chat-popup { width: calc(100% - 32px); right: 16px; bottom: 90px; height: 60vh; }
+      #plc-ai-bubble { bottom: 85px; right: 20px; font-size: 12px; padding: 6px 12px; }
+    }
   `;
 
   const styleSheet = document.createElement('style');
@@ -112,6 +97,7 @@
   const widget = document.createElement('div');
   widget.id = 'plc-chat-widget';
   widget.innerHTML = `
+    <div id="plc-ai-bubble">AI! 👋</div>
     <div id="plc-chat-bubble">
       <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
     </div>
@@ -142,26 +128,17 @@
   `;
   document.body.appendChild(widget);
 
-  // ===== RIWAYAT CHAT (disimpan di browser) =====
   let chatHistory = [];
-  const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
+  const MAX_HISTORY = 6;
 
-  // ===== FUNGSI PANGGIL API =====
   async function askGemini(userMessage) {
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          message: userMessage,
-          history: chatHistory
-        })
+        body: JSON.stringify({ message: userMessage, history: chatHistory })
       });
-      
-      if (!response.ok) {
-        throw new Error('API error: ' + response.status);
-      }
-      
+      if (!response.ok) throw new Error('API error: ' + response.status);
       const data = await response.json();
       return data.reply || 'Maaf, saya tidak bisa jawab itu.';
     } catch (error) {
@@ -170,31 +147,24 @@
     }
   }
 
-  // ===== FALLBACK KEYWORD MATCHING =====
   function getKeywordResponse(input) {
     const lowerInput = input.toLowerCase();
-    
     const kb = [
       { keywords: ['jadwal', 'kapan', 'tanggal', 'timeline'], answer: '📅 Timeline PLC 2K26:\n• Gelombang 1: 19 Aug - 6 Sept 2026\n• Gelombang 2: 7 Sept - 25 Sept 2026\n• Technical Meeting: 28 Sept 2026\n• Hari Lomba: 1-2 Oktober 2026\n• Puncak Acara: 3 Oktober 2026' },
       { keywords: ['lomba', 'kompetisi', 'cabang'], answer: '⭐ Ada 6 lomba:\n1. 🏀 Basket 3x3\n2. ✍️ Cerpen\n3. 📚 English Olympiad\n4. 💃 Kpop Dance\n5. 🗣️ Spelling Bee\n6. 🎭 Cosplay Competition' },
-      { keywords: ['daftar', 'registrasi', 'pendaftaran'], answer: '📝 Daftar di: https://forms.gle/izn1sfLVHSm1QRWy7\n\nPendaftaran dibuka sampai 25 September 2026!' },
-      { keywords: ['hadiah', 'prize', 'juara'], answer: '🏆 Total hadiah 10 juta++ dengan piala & sertifikat untuk semua juara!' },
-      { keywords: ['contact', 'cp', 'kontak', 'wa'], answer: '📞 Contact Person:\n+62 899-6801-450' },
+      { keywords: ['daftar', 'registrasi', 'pendaftaran'], answer: '📝 Daftar di: https://forms.gle/izn1sfLVHSm1QRWy7' },
+      { keywords: ['hadiah', 'prize', 'juara'], answer: '🏆 Total hadiah 10 juta++ + piala + sertifikat!' },
+      { keywords: ['contact', 'cp', 'kontak', 'wa'], answer: '📞 Contact Person: +62 899-6801-450' },
       { keywords: ['tempat', 'lokasi', 'dimana'], answer: '📍 SMAK Penabur Bandar Lampung' },
-      { keywords: ['biaya', 'harga', 'bayar'], answer: '💰 Biaya mulai Rp60.000 - Rp260.000 tergantung lomba & gelombang.' }
+      { keywords: ['biaya', 'harga', 'bayar'], answer: '💰 Biaya Rp60.000 - Rp260.000 tergantung lomba & gelombang.' }
     ];
-    
     let bestMatch = null, bestScore = 0;
     for (const item of kb) {
       let score = 0;
-      for (const kw of item.keywords) {
-        if (lowerInput.includes(kw)) score++;
-      }
+      for (const kw of item.keywords) if (lowerInput.includes(kw)) score++;
       if (score > bestScore) { bestScore = score; bestMatch = item; }
     }
-    
-    if (bestMatch) return bestMatch.answer;
-    return 'Maaf, saya tidak bisa jawab itu. Coba tanya seputar jadwal, lomba, atau pendaftaran ya! 🍄';
+    return bestMatch ? bestMatch.answer : 'Maaf, saya tidak bisa jawab itu. Coba tanya seputar jadwal, lomba, atau pendaftaran ya! 🍄';
   }
 
   function addMessage(text, isUser) {
@@ -221,45 +191,31 @@
     if (t) t.remove();
   }
 
-  // ===== FUNGSI KIRIM PESAN (CUMA SATU!) =====
   async function sendMessage() {
     const input = document.getElementById('plc-user-input');
     const text = input.value.trim();
     if (!text) return;
-    
     addMessage(text, true);
     input.value = '';
     showTyping();
-    
     const response = await askGemini(text);
     hideTyping();
     addMessage(response, false);
-    
-    // ===== SIMPAN KE RIWAYAT =====
     chatHistory.push({ role: 'user', content: text });
     chatHistory.push({ role: 'assistant', content: response });
-    
-    // Potong riwayat kalau lebih dari MAX_HISTORY
-    if (chatHistory.length > MAX_HISTORY) {
-      chatHistory = chatHistory.slice(-MAX_HISTORY);
-    }
+    if (chatHistory.length > MAX_HISTORY) chatHistory = chatHistory.slice(-MAX_HISTORY);
   }
 
-  // ===== EVENT LISTENERS =====
   document.getElementById('plc-chat-bubble').addEventListener('click', () => {
     document.getElementById('plc-chat-popup').classList.toggle('active');
   });
-
   document.getElementById('plc-close-btn').addEventListener('click', () => {
     document.getElementById('plc-chat-popup').classList.remove('active');
   });
-
   document.getElementById('plc-send-btn').addEventListener('click', sendMessage);
-
   document.getElementById('plc-user-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
   });
-
   document.querySelectorAll('.quick-reply').forEach(btn => {
     btn.addEventListener('click', () => {
       document.getElementById('plc-user-input').value = btn.dataset.text;
@@ -267,11 +223,47 @@
     });
   });
 
-  // Tombol AI di navbar (kalau ada)
   const aiToggleBtn = document.getElementById('aiToggleBtn');
   if (aiToggleBtn) {
     aiToggleBtn.addEventListener('click', () => {
       document.getElementById('plc-chat-popup').classList.toggle('active');
     });
+  }
+
+  // ===== BUBBLE "AI!" INTERAKSI =====
+  const aiBubble = document.getElementById('plc-ai-bubble');
+  const chatBubble = document.getElementById('plc-chat-bubble');
+  const chatPopup = document.getElementById('plc-chat-popup');
+
+  if (aiBubble) {
+    aiBubble.addEventListener('click', () => {
+      chatPopup.classList.add('active');
+      aiBubble.style.display = 'none';
+    });
+
+    chatBubble.addEventListener('click', () => {
+      aiBubble.style.display = 'none';
+    });
+
+    document.getElementById('plc-close-btn').addEventListener('click', () => {
+      setTimeout(() => {
+        if (!chatPopup.classList.contains('active')) {
+          aiBubble.style.display = 'block';
+          aiBubble.classList.add('shake');
+          setTimeout(() => aiBubble.classList.remove('shake'), 500);
+        }
+      }, 3000);
+    });
+
+    // Auto-hide setelah 15 detik kalau gak diklik
+    setTimeout(() => {
+      if (aiBubble && aiBubble.style.display !== 'none') {
+        aiBubble.style.opacity = '0';
+        aiBubble.style.transition = 'opacity 0.5s';
+        setTimeout(() => {
+          if (aiBubble) aiBubble.style.display = 'none';
+        }, 500);
+      }
+    }, 15000);
   }
 })();

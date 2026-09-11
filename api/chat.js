@@ -9,39 +9,24 @@ export default async function handler(req, res) {
   const { message, history } = req.body;
   if (!message) return res.status(400).json({ error: 'Message required' });
   
+  // ===== CEK KEYWORD SPESIAL DULU (sebelum ke Groq) =====
+  const specialResponse = checkSpecialKeywords(message);
+  if (specialResponse) {
+    return res.status(200).json({ reply: specialResponse });
+  }
+  
   const API_KEY = process.env.GROQ_API_KEY;
   if (!API_KEY) return res.status(500).json({ error: 'API key not configured' });
   
   const URL = 'https://api.groq.com/openai/v1/chat/completions';
   const MODEL = 'openai/gpt-oss-20b';
-
-  // ===== HARDCODED RESPONSES (easter egg) =====
-const SPECIAL_KEYWORDS = [
-  {
-    keywords: ['shania'],
-    response: 'Oh kalau itu pacarnya Halim 😎'
-  }
-];
-
-function checkSpecialKeywords(message) {
-  const lower = message.toLowerCase();
-  for (const item of SPECIAL_KEYWORDS) {
-    for (const kw of item.keywords) {
-      if (lower.includes(kw.toLowerCase())) {
-        return item.response;
-      }
-    }
-  }
-  return null;
-}
   
   const SYSTEM_PROMPT = `Kamu adalah "AMICCO Bot" — asisten virtual resmi untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
 
 IDENTITAS KAMU (WAJIB DIINGAT):
 - Nama kamu: AMICCO Bot (atau Asisten PLC 2K26)
 - Kamu BUKAN ChatGPT, BUKAN Gemini, BUKAN Claude, BUKAN AI lain.
-- Kamu adalah AI yang dibuat khusus untuk membantu event PLC 2K26.
-- Kalau ditanya "kamu siapa?" / "nama kamu siapa?" / "kamu AI apa?" → jawab: "Aku AMICCO Bot, asisten virtual PLC 2K26! 🍄"
+- Kalau ditanya "kamu siapa?" → jawab: "Aku AMICCO Bot, asisten virtual PLC 2K26! 🍄"
 - JANGAN pernah nyebut diri sebagai ChatGPT, Gemini, Claude, atau AI lain.
 - JANGAN pernah nyebut OpenAI, Google, Anthropic, atau perusahaan AI lain.
 
@@ -114,4 +99,28 @@ Jawab HANYA seputar PLC 2K26.`;
   } catch (error) {
     return res.status(500).json({ error: 'Server error', details: error.message });
   }
+}
+
+// ===== HARDCODED RESPONSES (easter egg & info spesifik) =====
+const SPECIAL_KEYWORDS = [
+  {
+    keywords: ['siapa yang buat', 'yang bikin', 'developer', 'pembuat', 'creator', 'yg buat', 'buat web', 'bikin web'],
+    response: 'Web dan AI ini dibuat oleh salah satu siswa SMAK BPK Penabur Bandar Lampung, lho! 😎 Keren kan?'
+  },
+  {
+    keywords: ['plc itu apa', 'apa itu plc', 'penabur laser competition', 'plc adalah'],
+    response: 'PLC (Penabur Laser Competition) adalah event tahunan dari SMAK BPK Penabur Bandar Lampung. PLC merupakan singkatan dari Language, Art, Sports, and Entrepreneur. Acara ini jadi wadah buat siswa-siswi berbakat buat kompetisi di bidang olahraga, bahasa, seni, dan kewirausahaan. PLC udah berlangsung bertahun-tahun dan selalu rame! 🔥'
+  }
+];
+
+function checkSpecialKeywords(message) {
+  const lower = message.toLowerCase();
+  for (const item of SPECIAL_KEYWORDS) {
+    for (const kw of item.keywords) {
+      if (lower.includes(kw.toLowerCase())) {
+        return item.response;
+      }
+    }
+  }
+  return null;
 }

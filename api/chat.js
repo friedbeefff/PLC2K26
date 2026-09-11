@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   }
   
   // ⚠️ GUNAKAN MODEL TERBARU: gemini-3.6-flash
-  const MODEL = 'gemini-2.0-flash';
+  const MODEL = 'gemini-3.6-flash';
   const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
@@ -49,12 +49,15 @@ Jawab HANYA seputar PLC 2K26.`;
 
   try {
     const response = await fetch(URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: SYSTEM_PROMPT + '\n\nUser: ' + message }] }]
-      })
-    });
+  method: 'POST',
+  headers: { 
+    'Content-Type': 'application/json',
+    'x-goog-api-key': API_KEY // Coba kirim key lewat header juga
+  },
+  body: JSON.stringify({
+    contents: [{ parts: [{ text: SYSTEM_PROMPT + '\n\nUser: ' + message }] }]
+  })
+});
     
     const data = await response.json();
     if (data.candidates && data.candidates[0] && data.candidates[0].content) {

@@ -22,7 +22,7 @@
     #plc-quick-replies .quick-reply { background: #2d2d44; color: #e0e0e0; border: 1px solid #444; padding: 6px 12px; border-radius: 16px; font-size: 11px; cursor: pointer; transition: all 0.2s; }
     #plc-quick-replies .quick-reply:hover { background: #e63946; border-color: #e63946; color: white; }
     #plc-chat-input { display: flex; padding: 12px 16px; background: #16162a; gap: 8px; border-top: 1px solid #333; }
-    #plc-chat-input input { flex: 1; background: #2d2d44; border: 1px solid #444; border-radius: 20px; padding: 10px 16px; color: white; font-size: 13px; outline: none; }
+    #plc-chat-input input { flex: 1; background: #2d2d44; border: 1px solid #444; border-radius: 20px; padding: 10px 16px; color: white; font-size: 16px; outline: none; }
     #plc-chat-input input:focus { border-color: #e63946; }
     #plc-chat-input button { background: linear-gradient(135deg, #e63946, #ff6b6b); border: none; border-radius: 50%; width: 38px; height: 38px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     #plc-chat-input button svg { width: 16px; height: 16px; fill: white; }

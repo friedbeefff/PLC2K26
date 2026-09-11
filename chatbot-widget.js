@@ -73,26 +73,32 @@
   `;
   document.body.appendChild(widget);
 
-  // ===== PANGGIL API ROUTE VERCEL (API Key aman di server) =====
-  async function askGemini(userMessage) {
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage })
-      });
-      
-      if (!response.ok) {
-        throw new Error('API error: ' + response.status);
-      }
-      
-      const data = await response.json();
-      return data.reply || 'Maaf, saya tidak bisa jawab itu.';
-    } catch (error) {
-      console.error('Error:', error);
-      return getKeywordResponse(userMessage); // Fallback
-    }
+  // ===== RIWAYAT CHAT (disimpan di browser) =====
+let chatHistory = [];
+const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
+
+ async function sendMessage() {
+  const input = document.getElementById('plc-user-input');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  addMessage(text, true);
+  input.value = '';
+  showTyping();
+  
+  const response = await askGemini(text);
+  hideTyping();
+  addMessage(response, false);
+  
+  // ===== SIMPAN KE RIWAYAT =====
+  chatHistory.push({ role: 'user', content: text });
+  chatHistory.push({ role: 'assistant', content: response });
+  
+  // Potong riwayat kalau lebih dari MAX_HISTORY
+  if (chatHistory.length > MAX_HISTORY) {
+    chatHistory = chatHistory.slice(-MAX_HISTORY);
   }
+}
 
   // ===== FALLBACK KEYWORD MATCHING (kalau API gagal) =====
   function getKeywordResponse(input) {

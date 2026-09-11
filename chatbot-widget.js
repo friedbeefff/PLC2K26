@@ -74,7 +74,7 @@
   document.body.appendChild(widget);
 
   // ===== GEMINI AI SETUP =====
-  const GEMINI_API_KEY = 'MASUKKIN_API_KEY_KAMU_DISINI'; // <-- GANTI INI
+  const GEMINI_API_KEY = 'AQ.Ab8RN6K_bneyMpJzEvcfqlTEzQygKPIWPIfUmP4A1C6YdSaBcg'; // <-- GANTI INI
   const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).

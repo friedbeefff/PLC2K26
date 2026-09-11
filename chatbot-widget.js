@@ -74,33 +74,34 @@
   document.body.appendChild(widget);
 
   // ===== RIWAYAT CHAT (disimpan di browser) =====
-let chatHistory = [];
-const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
+  let chatHistory = [];
+  const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
 
- async function sendMessage() {
-  const input = document.getElementById('plc-user-input');
-  const text = input.value.trim();
-  if (!text) return;
-  
-  addMessage(text, true);
-  input.value = '';
-  showTyping();
-  
-  const response = await askGemini(text);
-  hideTyping();
-  addMessage(response, false);
-  
-  // ===== SIMPAN KE RIWAYAT =====
-  chatHistory.push({ role: 'user', content: text });
-  chatHistory.push({ role: 'assistant', content: response });
-  
-  // Potong riwayat kalau lebih dari MAX_HISTORY
-  if (chatHistory.length > MAX_HISTORY) {
-    chatHistory = chatHistory.slice(-MAX_HISTORY);
+  // ===== FUNGSI PANGGIL API =====
+  async function askGemini(userMessage) {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: userMessage,
+          history: chatHistory
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('API error: ' + response.status);
+      }
+      
+      const data = await response.json();
+      return data.reply || 'Maaf, saya tidak bisa jawab itu.';
+    } catch (error) {
+      console.error('Error:', error);
+      return getKeywordResponse(userMessage);
+    }
   }
-}
 
-  // ===== FALLBACK KEYWORD MATCHING (kalau API gagal) =====
+  // ===== FALLBACK KEYWORD MATCHING =====
   function getKeywordResponse(input) {
     const lowerInput = input.toLowerCase();
     
@@ -151,6 +152,7 @@ const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
     if (t) t.remove();
   }
 
+  // ===== FUNGSI KIRIM PESAN (CUMA SATU!) =====
   async function sendMessage() {
     const input = document.getElementById('plc-user-input');
     const text = input.value.trim();
@@ -163,8 +165,18 @@ const MAX_HISTORY = 6; // Simpan maksimal 6 pesan (3 pasang)
     const response = await askGemini(text);
     hideTyping();
     addMessage(response, false);
+    
+    // ===== SIMPAN KE RIWAYAT =====
+    chatHistory.push({ role: 'user', content: text });
+    chatHistory.push({ role: 'assistant', content: response });
+    
+    // Potong riwayat kalau lebih dari MAX_HISTORY
+    if (chatHistory.length > MAX_HISTORY) {
+      chatHistory = chatHistory.slice(-MAX_HISTORY);
+    }
   }
 
+  // ===== EVENT LISTENERS =====
   document.getElementById('plc-chat-bubble').addEventListener('click', () => {
     document.getElementById('plc-chat-popup').classList.toggle('active');
   });

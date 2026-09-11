@@ -105,10 +105,10 @@ Jawab HANYA seputar PLC 2K26.`;
 const SPECIAL_KEYWORDS = [
   {
     keywords: ['siapa yang buat', 'yang bikin', 'developer', 'pembuat', 'creator', 'yg buat', 'buat web', 'bikin web'],
-    response: 'Web dan AI ini dibuat oleh salah satu siswa SMAK BPK Penabur Bandar Lampung, lho! 😎 Keren kan?'
+    response: 'Web dan AI ini dibuat oleh salah satu siswa SMAK BPK Penabur Bandar Lampung, lho! 😎'
   },
   {
-    keywords: ['plc itu apa', 'apa itu plc', 'penabur laser competition', 'plc adalah'],
+    keywords: ['plc itu apa', 'apa itu plc', 'plc tuh apa', 'apasih itu plc', 'apasih plc', 'what is plc', 'plc apa', 'kenapa nama nya plc', 'definisi plc', 'penabur laser competition', 'plc adalah'],
     response: 'PLC (Penabur Laser Competition) adalah event tahunan dari SMAK BPK Penabur Bandar Lampung. PLC merupakan singkatan dari PENABUR LASER(Language, Art, Sports, and Entrepreneur) COMPETITION. Acara ini jadi wadah buat siswa-siswi berbakat dan sudah berlangsung bertahun-tahun dan selalu rame! 🔥'
   }
 ];

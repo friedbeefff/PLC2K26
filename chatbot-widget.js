@@ -1,5 +1,74 @@
 (function() {
   const styles = `
+  /* ===== BUBBLE "AI!" ANIMASI ===== */
+#plc-ai-bubble {
+  position: fixed;
+  bottom: 95px;
+  right: 30px;
+  background: linear-gradient(135deg, #e63946, #ff6b6b);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 18px 18px 18px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.15);
+  z-index: 9998;
+  cursor: pointer;
+  animation: aiBubblePop 0.5s ease, aiBubbleFloat 2s ease-in-out infinite 0.5s;
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+#plc-ai-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #e63946;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+#plc-ai-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.7), 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+@keyframes aiBubblePop {
+  0% { opacity: 0; transform: scale(0.3) translateY(20px); }
+  60% { opacity: 1; transform: scale(1.1) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes aiBubbleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Animasi getar biar makin menarik perhatian */
+#plc-ai-bubble.shake {
+  animation: aiBubbleShake 0.5s ease;
+}
+
+@keyframes aiBubbleShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg) scale(1.05); }
+  75% { transform: rotate(8deg) scale(1.05); }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  #plc-ai-bubble {
+    bottom: 85px;
+    right: 20px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
     #plc-chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: 'Segoe UI', sans-serif; }
     #plc-chat-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #e63946, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6), 0 0 0 4px rgba(30, 30, 47, 0.8); transition: transform 0.3s; }
     #plc-chat-bubble:hover { transform: scale(1.1); }

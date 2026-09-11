@@ -9,15 +9,17 @@ export default async function handler(req, res) {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: 'Message required' });
   
-  const API_KEY = process.env.GEMINI_API_KEY;
+  const API_KEY = process.env.GROQ_API_KEY;
   
   if (!API_KEY) {
     return res.status(500).json({ error: 'API key not configured' });
   }
   
-  // ⚠️ GUNAKAN MODEL TERBARU: gemini-3.6-flash
-  const MODEL = 'gemini-3.6-flash';
-  const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+  // Groq pakai endpoint OpenAI-compatible
+  const URL = 'https://api.groq.com/openai/v1/chat/completions';
+  
+  // Pilih model. Llama 3.1 8B paling tinggi limit hariannya (14.400/hari).
+  const MODEL = 'llama-3.1-8b-instant'; 
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
 Jawab dengan singkat, santai, pakai bahasa Indonesia, dan emoji seperlunya.
@@ -49,21 +51,29 @@ Jawab HANYA seputar PLC 2K26.`;
 
   try {
     const response = await fetch(URL, {
-  method: 'POST',
-  headers: { 
-    'Content-Type': 'application/json',
-    'x-goog-api-key': API_KEY // Coba kirim key lewat header juga
-  },
-  body: JSON.stringify({
-    contents: [{ parts: [{ text: SYSTEM_PROMPT + '\n\nUser: ' + message }] }]
-  })
-});
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}` // Groq pakai Authorization Bearer
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: message }
+        ],
+        temperature: 0.7
+      })
+    });
     
     const data = await response.json();
-    if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-      return res.status(200).json({ reply: data.candidates[0].content.parts[0].text });
+    
+    // Cek struktur response Groq
+    if (data.choices && data.choices[0] && data.choices[0].message) {
+      return res.status(200).json({ reply: data.choices[0].message.content });
     }
-    return res.status(500).json({ error: 'No response from Gemini', details: data });
+    
+    return res.status(500).json({ error: 'No response from Groq', details: data });
   } catch (error) {
     return res.status(500).json({ error: 'Server error', details: error.message });
   }

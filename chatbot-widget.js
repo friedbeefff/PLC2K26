@@ -1,10 +1,10 @@
 (function() {
   const styles = `
     #plc-chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9999; font-family: 'Segoe UI', sans-serif; }
-    #plc-chat-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #e63946, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(230,57,70,0.4); transition: transform 0.3s; }
+    #plc-chat-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #e63946, #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6), 0 0 0 4px rgba(30, 30, 47, 0.8); transition: transform 0.3s; }
     #plc-chat-bubble:hover { transform: scale(1.1); }
     #plc-chat-bubble svg { width: 28px; height: 28px; fill: white; }
-    #plc-chat-popup { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 550px; background: #1e1e2f; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); display: none; flex-direction: column; overflow: hidden; border: 1px solid #333; z-index: 10000; animation: slideUp 0.3s ease; }
+    #plc-chat-popup { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 550px; background: #1e1e2f; border-radius: 20px; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 60px rgba(230, 57, 70, 0.3); display: none; flex-direction: column; overflow: hidden; border: 1px solid #444; z-index: 10000; animation: slideUp 0.3s ease; }
     #plc-chat-popup.active { display: flex; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     #plc-chat-header { background: linear-gradient(135deg, #e63946, #ff6b6b); padding: 16px 20px; display: flex; align-items: center; gap: 12px; position: relative; }

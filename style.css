@@ -2162,3 +2162,14 @@ footer p {
         margin-left: 40px;
     }
 }
+
+/* ===== PREVENT ZOOM ON MOBILE ===== */
+input, textarea, select {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    input, textarea, select {
+        font-size: 16px;
+    }
+}

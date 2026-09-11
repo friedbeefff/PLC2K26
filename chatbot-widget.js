@@ -72,10 +72,6 @@
     </div>
   `;
   document.body.appendChild(widget);
-
-  // ===== GEMINI AI SETUP =====
-  const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY' // <-- GANTI INI
-  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
   
   const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
 Jawab dengan singkat, santai, pakai bahasa Indonesia, dan emoji seperlunya.
@@ -92,18 +88,24 @@ INFO EVENT:
 Jawab HANYA seputar PLC 2K26. Kalau ditanya di luar topik, tolak dengan sopan.`;
 
   async function askGemini(userMessage) {
-    try {
-      const response = await fetch(GEMINI_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: SYSTEM_PROMPT + '\n\nUser: ' + userMessage
-            }]
-          }]
-        })
-      });
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userMessage })
+    });
+    
+    if (!response.ok) {
+      throw new Error('API error: ' + response.status);
+    }
+    
+    const data = await response.json();
+    return data.reply || 'Maaf, saya tidak bisa jawab itu.';
+  } catch (error) {
+    console.error('Error:', error);
+    return getKeywordResponse(userMessage); // Fallback
+  }
+}
       
       const data = await response.json();
       if (data.candidates && data.candidates[0] && data.candidates[0].content) {

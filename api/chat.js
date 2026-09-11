@@ -109,7 +109,7 @@ const SPECIAL_KEYWORDS = [
   },
   {
     keywords: ['plc itu apa', 'apa itu plc', 'penabur laser competition', 'plc adalah'],
-    response: 'PLC (Penabur Laser Competition) adalah event tahunan dari SMAK BPK Penabur Bandar Lampung. PLC merupakan singkatan dari Language, Art, Sports, and Entrepreneur. Acara ini jadi wadah buat siswa-siswi berbakat buat kompetisi di bidang olahraga, bahasa, seni, dan kewirausahaan. PLC udah berlangsung bertahun-tahun dan selalu rame! 🔥'
+    response: 'PLC (Penabur Laser Competition) adalah event tahunan dari SMAK BPK Penabur Bandar Lampung. PLC merupakan singkatan dari PENABUR LASER(Language, Art, Sports, and Entrepreneur) COMPETITION. Acara ini jadi wadah buat siswa-siswi berbakat dan sudah berlangsung bertahun-tahun dan selalu rame! 🔥'
   }
 ];
 

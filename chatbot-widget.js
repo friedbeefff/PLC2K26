@@ -72,57 +72,59 @@
     </div>
   `;
   document.body.appendChild(widget);
-  
-  const SYSTEM_PROMPT = `Kamu adalah asisten virtual ramah untuk event PLC 2K26 - AMICCO (tema Mario & Wreck-It Ralph).
-Jawab dengan singkat, santai, pakai bahasa Indonesia, dan emoji seperlunya.
 
-INFO EVENT:
-- Tanggal: 1-3 Oktober 2026
-- Tempat: SMAK Penabur Bandar Lampung
-- 6 lomba: Basket 3x3, Cerpen, English Olympiad, Kpop Dance, Spelling Bee, Cosplay
-- Pendaftaran: 19 Aug - 25 Sept 2026 (Early Bird & Late Bird)
-- Technical Meeting: 28 September 2026
-- Puncak acara: 3 Oktober 2026 (Pengumuman + Pentas Seni)
-- Contact Person: +62 899-6801-450
-
-Jawab HANYA seputar PLC 2K26. Kalau ditanya di luar topik, tolak dengan sopan.`;
-
+  // ===== PANGGIL API ROUTE VERCEL (API Key aman di server) =====
   async function askGemini(userMessage) {
-  try {
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMessage })
-    });
-    
-    if (!response.ok) {
-      throw new Error('API error: ' + response.status);
-    }
-    
-    const data = await response.json();
-    return data.reply || 'Maaf, saya tidak bisa jawab itu.';
-  } catch (error) {
-    console.error('Error:', error);
-    return getKeywordResponse(userMessage); // Fallback
-  }
-}
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage })
+      });
+      
+      if (!response.ok) {
+        throw new Error('API error: ' + response.status);
+      }
       
       const data = await response.json();
-      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-        return data.candidates[0].content.parts[0].text;
-      }
-      return 'Maaf, saya sedang ada gangguan. Coba tanya lagi ya! 🙏';
+      return data.reply || 'Maaf, saya tidak bisa jawab itu.';
     } catch (error) {
-      console.error('Gemini error:', error);
-      return 'Maaf, koneksi ke AI sedang bermasalah. Coba lagi nanti ya! 🙏';
+      console.error('Error:', error);
+      return getKeywordResponse(userMessage); // Fallback
     }
+  }
+
+  // ===== FALLBACK KEYWORD MATCHING (kalau API gagal) =====
+  function getKeywordResponse(input) {
+    const lowerInput = input.toLowerCase();
+    
+    const kb = [
+      { keywords: ['jadwal', 'kapan', 'tanggal', 'timeline'], answer: '📅 Timeline PLC 2K26:\n• Gelombang 1: 19 Aug - 6 Sept 2026\n• Gelombang 2: 7 Sept - 25 Sept 2026\n• Technical Meeting: 28 Sept 2026\n• Hari Lomba: 1-2 Oktober 2026\n• Puncak Acara: 3 Oktober 2026' },
+      { keywords: ['lomba', 'kompetisi', 'cabang'], answer: '⭐ Ada 6 lomba:\n1. 🏀 Basket 3x3\n2. ✍️ Cerpen\n3. 📚 English Olympiad\n4. 💃 Kpop Dance\n5. 🗣️ Spelling Bee\n6. 🎭 Cosplay Competition' },
+      { keywords: ['daftar', 'registrasi', 'pendaftaran'], answer: '📝 Daftar di: https://forms.gle/izn1sfLVHSm1QRWy7\n\nPendaftaran dibuka sampai 25 September 2026!' },
+      { keywords: ['hadiah', 'prize', 'juara'], answer: '🏆 Total hadiah 10 juta++ dengan piala & sertifikat untuk semua juara!' },
+      { keywords: ['contact', 'cp', 'kontak', 'wa'], answer: '📞 Contact Person:\n+62 899-6801-450' },
+      { keywords: ['tempat', 'lokasi', 'dimana'], answer: '📍 SMAK Penabur Bandar Lampung' },
+      { keywords: ['biaya', 'harga', 'bayar'], answer: '💰 Biaya mulai Rp60.000 - Rp260.000 tergantung lomba & gelombang.' }
+    ];
+    
+    let bestMatch = null, bestScore = 0;
+    for (const item of kb) {
+      let score = 0;
+      for (const kw of item.keywords) {
+        if (lowerInput.includes(kw)) score++;
+      }
+      if (score > bestScore) { bestScore = score; bestMatch = item; }
+    }
+    
+    if (bestMatch) return bestMatch.answer;
+    return 'Maaf, saya tidak bisa jawab itu. Coba tanya seputar jadwal, lomba, atau pendaftaran ya! 🍄';
   }
 
   function addMessage(text, isUser) {
     const msgs = document.getElementById('plc-chat-messages');
     const div = document.createElement('div');
     div.className = 'message ' + (isUser ? 'user' : 'bot');
-    // Replace newline with <br> for bot messages
     div.innerHTML = isUser ? text : text.replace(/\n/g, '<br>');
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
@@ -177,12 +179,12 @@ Jawab HANYA seputar PLC 2K26. Kalau ditanya di luar topik, tolak dengan sopan.`;
       sendMessage();
     });
   });
-  
+
   // Tombol AI di navbar (kalau ada)
   const aiToggleBtn = document.getElementById('aiToggleBtn');
   if (aiToggleBtn) {
-      aiToggleBtn.addEventListener('click', () => {
-          document.getElementById('plc-chat-popup').classList.toggle('active');
-      });
+    aiToggleBtn.addEventListener('click', () => {
+      document.getElementById('plc-chat-popup').classList.toggle('active');
+    });
   }
 })();
